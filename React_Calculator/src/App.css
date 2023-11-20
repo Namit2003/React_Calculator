@@ -8,10 +8,21 @@
 .calculator {
   width: 500px;
   height: 700px;
-  background-color: rgb(178, 213, 243);
+  background-color: #3F454C;
   border-radius: 2%;
   padding: 2.5%;
 }
+
+@font-face {
+  font-family: 'digital-clock-font';
+  src: url('digital-7\\digital-7.ttf');
+}
+
+@font-face {
+  font-family: 'orbitron';
+  src: url('\\Orbitron\\static\\Orbitron-Regular.ttf');
+}
+
 
 .keys-container {
   display: grid;
@@ -26,15 +37,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #d54a4a;
+  /* border: 1px solid #d54a4a; */
   padding: 10px;
   font-size: 2rem;
   cursor: pointer;
+  border-radius: 5%;
+  font-family: Helvetica;
+  color: black;
+  background-color: aliceblue;
 }
 
 .display-screen {
   height: 25%;
   margin-bottom: 5%;
+  background-color: #0A090F;
 }
 
 .k1,
@@ -54,12 +70,18 @@
 
 .que {
   height: 40%;
-  background-color: blueviolet;
 }
 
 .ans {
   height: 60%;
-  background-color: blue;
+}
+
+.que,
+.ans {
+  font-family: 'digital-clock-font';
+  text-align: right;
+  padding-right: 2%;
+  color: red;
 }
 
 .que>p {
@@ -74,4 +96,21 @@
 
 .key:hover {
   background-color: aquamarine;
+}
+
+#equals {
+  background-color: #FFA24E;
+}
+
+#add,
+#subtract,
+#divide,
+#multiply,
+#clear {
+  background-color: #D6DEBA;
+}
+
+footer {
+  font-family: orbitron;
+  font-size: larger;
 }

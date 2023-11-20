@@ -1,14 +1,25 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useRef, useState } from 'react'
 import './App.css'
 
 function App() {
 
   const [question, setQuestion] = useState("")
   const [answer, setAnswer] = useState('0')
+  const pressedEquals = useRef(false)
 
   const handleClick = (val) => {
+    const symbols = ['+', '-', '/', '*']
+    if (pressedEquals.current === true) {
+      if (symbols.includes(val)) {
+        setQuestion(answer + val)
+      }
+      else {
+        setQuestion(val)
+        setAnswer(val)
+      }
+      pressedEquals.current = false;
+      return
+    }
     // console.log(val)
     if (val === '0' && question === '0') {
       return;
@@ -21,7 +32,7 @@ function App() {
     if ((val === '/' || val === '*') && question === '') {
       return;
     }
-    const symbols = ['+', '-', '/', '*']
+
     if (val === '-') {
       setQuestion(question + val)
     }
@@ -41,7 +52,7 @@ function App() {
       setAnswer(val)
     }
     // for first entered value
-    else if (question === '' || answer === 0) {
+    else if (question === '' || answer === '0') {
       setAnswer(val)
     }
     // extracting string after last symbol
@@ -61,7 +72,8 @@ function App() {
     if (question === '') {
       return;
     }
-    setAnswer(Number(eval(question)))
+    pressedEquals.current = true;
+    setAnswer(String(eval(question)))
     setQuestion(question + "=" + eval(question))
   }
 
