@@ -1,3 +1,3 @@
 # React_Calculator
 
-This is calculator made in react
+You can view this calculator on this site: https://namit-react-calculator.vercel.app/
